@@ -8,6 +8,7 @@ import streamlit as st
 from model_inference import (
     AVAILABLE_MODELS,
     load_selected_model,
+    model_revision,
     predict_selected_model,
 )
 
@@ -58,7 +59,7 @@ st.markdown(
 # =========================================================
 
 @st.cache_resource
-def get_model(model_name):
+def get_model(model_name, revision):
     return load_selected_model(model_name)
 
 
@@ -234,7 +235,7 @@ if submitted:
 
     for name in model_names:
         try:
-            loaded = get_model(name)
+            loaded = get_model(name, model_revision(name))
 
             seconds = float(
                 predict_selected_model(
