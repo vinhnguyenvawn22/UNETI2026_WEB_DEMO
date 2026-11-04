@@ -10,4 +10,3 @@ reportlab==4.4.9
 nbformat==5.11.1
 ipython==9.18.0
 pypdf==6.10.0
-streamlit==1.50.0
